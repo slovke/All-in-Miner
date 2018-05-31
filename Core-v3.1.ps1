@@ -1,14 +1,10 @@
 <#
-This file is part of NemosMiner
-Copyright (c) 2018 Nemo
-Copyright (c) 2018 MrPlus
-
-NemosMiner is free software: you can redistribute it and/or modify
+All-in-Miner is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
 the Free Software Foundation, either version 3 of the License, or
 (at your option) any later version.
 
-NemosMiner is distributed in the hope that it will be useful,
+All-in-Miner is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
@@ -26,7 +22,7 @@ Function InitApplication {
     [Net.ServicePointManager]::SecurityProtocol = "tls12, tls11, tls"
     Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
     Get-ChildItem . -Recurse | Unblock-File
-    Update-Status("INFO: Adding NemosMiner path to Windows Defender's exclusions.. (may show an error if Windows Defender is disabled)")
+    Update-Status("INFO: Adding All-in-Miner path to Windows Defender's exclusions.. (may show an error if Windows Defender is disabled)")
     try {if ((Get-MpPreference).ExclusionPath -notcontains (Convert-Path .)) {Start-Process powershell -Verb runAs -ArgumentList "Add-MpPreference -ExclusionPath '$(Convert-Path .)'"}}catch {}
     if ($Proxy -eq "") {$PSDefaultParameterValues.Remove("*:Proxy")}
     else {$PSDefaultParameterValues["*:Proxy"] = $Proxy}
@@ -129,13 +125,7 @@ Function NPMCycle {
 
     #Activate or deactivate donation
     if ((Get-Date).AddDays(-1).AddMinutes($Config.Donate) -ge $Variables.LastDonated -and $Variables.DonateRandom.wallet -eq $Null) {
-        # Get donation addresses randomly from agreed devs list
-        # This will fairly distribute donations to Devs
-        # Devs list and wallets is publicly available at: http://nemosminer.x10host.com/devlist.json 
-        try {$Donation = Invoke-WebRequest "http://nemosminer.x10host.com/devlist.json" -UseBasicParsing -Headers @{"Cache-Control" = "no-cache"} | ConvertFrom-Json
-        }
-        catch {$Donation = @([PSCustomObject]@{Name = "mrplus"; Wallet = "134bw4oTorEJUUVFhokDQDfNqTs7rBMNYy"; UserName = "mrplus"}, [PSCustomObject]@{Name = "nemo"; Wallet = "1QGADhdMRpp9Pk5u5zG1TrHKRrdK5R81TE"; UserName = "nemo"})
-        }
+        $Donation = @([PSCustomObject]@{Name = "allinminer"; Wallet = "13XUToznfHibz4yzuJ3yVANzfUch384vUL"; UserName = "allinminer"})
         if ($Donation -ne $null) {
             $Variables.DonateRandom = $Donation | Get-Random
             $Config | Add-Member -Force @{PoolsConfig = [PSCustomObject]@{default = [PSCustomObject]@{Wallet = $Variables.DonateRandom.Wallet; UserName = $Variables.DonateRandom.UserName; WorkerName = "NPlusMiner"; PricePenaltyFactor = 1}}}
@@ -148,9 +138,9 @@ Function NPMCycle {
             }
             else {
                 [PSCustomObject]@{default = [PSCustomObject]@{
-                        Wallet      = "1QGADhdMRpp9Pk5u5zG1TrHKRrdK5R81TE"
-                        UserName    = "nemo"
-                        WorkerName  = "NemosMinerNoCfg"
+                        Wallet      = "13XUToznfHibz4yzuJ3yVANzfUch384vUL"
+                        UserName    = "allinminer"
+                        WorkerName  = "allinminerNoCfg"
                         PoolPenalty = 1
                     }
                 }

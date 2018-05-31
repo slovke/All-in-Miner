@@ -1,14 +1,22 @@
-Copyright (c) 2018 Nemo		(https://github.com/nemosminer/NemosMiner)
+ # All-in-Miner
 
-Copyright (c) 2018 MrPlus	(https://github.com/MrPlusGH/NPlusMiner)
+Why another mining suite?
+ 
+All-in-Miner is based on work by Nemo (https://github.com/nemosminer/NemosMiner) and MrPlus (https://github.com/MrPlusGH/NPlusMiner).
+We were already quite happy with this setup.
 
- ![alt text](https://github.com/nemosminer/NemosMiner/blob/master/NM.png)
- # NemosMiner-v3.1
- Updated 2018 May 1
+However, we did not like to approach of pre-selecting mining software.
+Why? Because not all mining software performs the same on every GPU/OS/drivers/etc.
+
+Hence, our idea is to build a mining suite that contains all contemporary mining software.
+That means the initial benchmarking process might take longer, however, you will get better results with your individual setup!
+
+Do we miss any (new) mining software? Let us know and open an issue on github!
+
  
 *****
 
-NemosMiner Monitors mining pools in real-time in order to find the most profitable Algo
+All-in-Miner monitors mining pools in real-time in order to find the most profitable algo
 
 	 GUI and easy configuration
 	 Auto Benchmarks Each algo to get optimal speeds 
@@ -19,13 +27,13 @@ NemosMiner Monitors mining pools in real-time in order to find the most profitab
 
 Easy configuration, easy start:
 
-      Run NemosMiner-v3.1.bat
+      Run All-in-Miner.bat
       1. Config tab
       2. Set your Wallet address and Username
       3. Select your pool/s and load default Algos button. (Remove any algos you do not want to mine)
       4. "Save Config"
       5. Close
-      Run NemosMiner-v3.1.bat
+      Run All-in-Miner.bat
       6."Start"
       
       note: 2. you only need to change Username if you are using Miningpoolhub
@@ -42,8 +50,8 @@ Speical Thankyou To "MrPlus" amazing work with the GUI, PLUS profit calculations
 
    GUI
    
-      Since version 3.0 NemosMiner has a GUI making it easy to configure and run.
-	  Relies on config files. No need to edit bat files. Simply run NemosMiner 
+      All-in-Miner has a GUI making it easy to configure and run.
+	  Relies on config files. No need to edit bat files. Simply run All-in-Miner 
 	  Set the config on the config tab, save, close, run
 
    Pause mining
@@ -76,7 +84,7 @@ Speical Thankyou To "MrPlus" amazing work with the GUI, PLUS profit calculations
 	    **Do not delete the default entry.**
             - Edit Config\PoolsConfig.json
             - Add an entry for the pool you want to customize
-              - The name must be the NemosMiner name for the pool. ie. for ahashpool, if you use Plus. The name is ahashpoolplus.
+              - The name must be the All-in-Miner name for the pool. ie. for ahashpool, if you use Plus. The name is ahashpoolplus.
               - (**careful with json formating ;)**)
               - Best way is to duplicate the default entry
         - Note that the GUI only updates the default entry. Any other changes need to be done manualy
@@ -111,13 +119,13 @@ Speical Thankyou To "MrPlus" amazing work with the GUI, PLUS profit calculations
    Support running multiple instances
    
       **Experimental**
-      More than one instance of NemosMiner can run on the same rig
+      More than one instance of All-in-Miner can run on the same rig
       Each instance must be placed in it's own directory
       Miner has to be started prior the launch of the next instance
 
    Optional miners (Advanced)
    
-      Some miners are not enabled by default in NemosMiner for a variety of reasons
+      Some miners are not enabled by default in All-in-Miner for a variety of reasons
       A new folder can be found called "OptionalMiners" containing .ps1 files for some miners
       For advanced users, refer to OptionalMiners\Readme.txt on how to use
 
@@ -150,7 +158,7 @@ Speical Thankyou To "MrPlus" amazing work with the GUI, PLUS profit calculations
 
    New version notification
    
-      NemosMiner will notify new version availability
+      All-in-Miner will notify new version availability
 *****
  
 
@@ -167,18 +175,16 @@ running multiple cards its recommended to increase Virtual Memory 64gb is optima
 
 Requires Nvidia driver 397.44 or newer
 
-Made For & Tested with 8x10603gb 6x1070 6x1070ti 6x1080ti (users have reported up to 12cards working have not tested myself)
 Some miners do not support more that 9 cards
 
 *****
 
-Any donations will be much appreciated:
+Any BTC donations will be much appreciated by the contributors:
 
-aaronsace = 1MsrCoAt8qM53HUMsUxvy9gMj3QVbHLazH
-
-nemo = 1QGADhdMRpp9Pk5u5zG1TrHKRrdK5R81TE
-
-MrPlus = 134bw4oTorEJUUVFhokDQDfNqTs7rBMNYy
+aaronsace: 1MsrCoAt8qM53HUMsUxvy9gMj3QVbHLazH
+nemo: 1QGADhdMRpp9Pk5u5zG1TrHKRrdK5R81TE
+MrPlus: 134bw4oTorEJUUVFhokDQDfNqTs7rBMNYy
+All-in-Miner: 13XUToznfHibz4yzuJ3yVANzfUch384vUL
 
 Licensed under the GNU General Public License v3.1
 Permissions of this strong copyleft license are conditioned on making available complete source code of licensed works and modifications, which include larger works using a licensed work, under the same license. Copyright and license notices must be preserved. Contributors provide an express grant of patent rights. https://github.com/nemosminer/NemosMiner/blob/master/LICENSE
